@@ -12,8 +12,9 @@ type Props =  {
 
 export default function Layout({children, modal}: Props) {
     return (
-        <html lang="en">
-            <body>
+        // NOTE: suppressHydrationWarning(https://financial-programmer.net/blog/nextjs-warning-extra-attributes)
+        <html lang="en" suppressHydrationWarning>
+            <body suppressHydrationWarning>
                 <div>{children}</div>
                 {modal}
             </body>

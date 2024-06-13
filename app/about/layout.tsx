@@ -14,7 +14,7 @@ type Props =  {
 export default function Layout({children, a, b}: Props) {
     return (
         <html lang="en">
-            <body className="bg-black">
+            <body className="bg-black" suppressHydrationWarning>
                 <div>{children}</div>
                 <div>{a}</div>
                 <div>{b}</div>

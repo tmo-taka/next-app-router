@@ -1,17 +1,18 @@
-// 'use client'
+'use client'
 
-// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export function Modal({ children }: { children: React.ReactNode }) {
-    // const router = useRouter()
+    const router = useRouter()
     console.log(children)
 
     return (
-        <div className='fixed w-full h-full bg-black opacity-35'>
+        <div className='fixed w-full h-full bg-black opacity-35' suppressHydrationWarning>
             <button
-                // onClick={() => {
-                //     router.back()
-                // }}
+                className='bg-cyan-700 text-white p-8'
+                onClick={() => {
+                    router.back()
+                }}
             >
                 モーダルを閉じる
             </button>
