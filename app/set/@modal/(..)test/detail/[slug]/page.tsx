@@ -1,6 +1,6 @@
-"use client"; 
+"use client";
 
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState} from 'react';
 // import { useParams } from 'next/navigation'
 import { Modal } from '@/app/ui/modal'
 
@@ -19,10 +19,8 @@ export default function Page({ params: { slug }} : { params: { slug: string } } 
     }, []);
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Modal>
-                {modalText}
-            </Modal>
-        </Suspense>
+        <Modal>
+            {modalText}
+        </Modal>
     )
 }
