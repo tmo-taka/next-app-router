@@ -16,7 +16,7 @@ export default function Page() {
                 menuLists.map((menu:Menu, index:number) => {
                     return (
                         <li key={menu.id}>
-                            <Link href={`/test/detail/${menu.id}`}>{menu.name}</Link>
+                            <Link href={`/test/detail/${menu.id}`} scroll={false}>{menu.name}</Link>
                         </li>
                     )
                 })

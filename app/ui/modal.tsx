@@ -7,7 +7,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
     console.log(children)
 
     return (
-        <div className='fixed w-full h-full bg-black opacity-35' suppressHydrationWarning>
+        <div className='fixed w-full h-full bg-black opacity-35 top-0 left-0' suppressHydrationWarning>
             <button
                 className='bg-cyan-700 text-white p-8'
                 onClick={() => {
