@@ -14,13 +14,14 @@ type Props =  {
 export default function Layout({children, modal}: Props) {
     return (
         // NOTE: suppressHydrationWarning(https://financial-programmer.net/blog/nextjs-warning-extra-attributes)
-        <html lang="en" suppressHydrationWarning>
-            <body className="relative" suppressHydrationWarning>
+            // <body className="relative" suppressHydrationWarning>
+            <div>
                 <div>{children}</div>
                 <Suspense fallback={<div className="w-full h-full bg-black">Loading...</div>}>
                     {modal}
                 </Suspense>
-            </body>
-        </html>
+            </div>
+            // </body>
+        // </html>
     );
 }
