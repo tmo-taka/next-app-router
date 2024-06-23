@@ -1,7 +1,7 @@
 export default function Page() {
     return (
         <div>
-            <p className="p-4">これがテストだ</p>
+            <h1 className="p-4">これがテストだ</h1>
         </div>
     );
 }
