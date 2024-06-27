@@ -2,7 +2,7 @@
 
 import { useEffect, useState} from 'react';
 // import { useParams } from 'next/navigation'
-import { Modal } from '@/app/ui/modal'
+import { Modal } from '@/app/ui/Modal'
 
 export default function Page({ params: { slug }} : { params: { slug: string } } ) {
     console.log(slug)
