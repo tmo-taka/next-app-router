@@ -17,15 +17,17 @@ const meta = {
   argTypes: {
     children: {
       control: {type: 'text'},
-      default: 'ボタン名',
       description: 'ボタンのラベル'
     },
     childClick: {
       control: {action: true},
       description: 'emitされるアクション'
     }
-  }
-  // args: { onClick: () => alert('こんにちは') },
+  },
+  args: {
+    children: 'デフォルト',
+    childClick: fn()
+  },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
 } satisfies Meta<typeof Button>;
 
@@ -36,13 +38,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: `ボタン`,
-    childClick: () => alert('押されました'),
+    childClick: fn()
   },
 };
 
 export const Primary: Story = {
   args: {
     children: `文字数をかなりオーバーしてみた`,
-    childClick: () => alert('押されました'),
+    childClick: fn()
   },
 };
