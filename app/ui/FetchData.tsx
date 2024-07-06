@@ -1,24 +1,25 @@
 "use client"
 
-import {client} from "../client";
-import {GET_NAVIGATION} from "../graphql/queries"
 import { useQuery } from '@tanstack/react-query'
+import type {UseQueryResult} from '@tanstack/react-query'
 
 const fetchAllPage = async () => {
-    const query = GET_NAVIGATION
-    const data = await client.request(query)
-    return data
-}
-
-export const FetchData = () => {
     try {
-        const { data } = useQuery({queryKey: ['pages'], queryFn: fetchAllPage})
-        console.log(data)
+        const res = await fetch('/api/prismic/')
+        const data = await res.json()
+        return data
     } catch(e) {
         console.log(e)
     }
+}
+
+export const FetchData = () => {
+    const { data }: UseQueryResult<any | undefined> = useQuery({queryKey: ['pages'], queryFn: fetchAllPage})
+    console.log(data)
 
     return (
-        <div>これ</div>
+        <div>
+            <div>これ</div>
+        </div>
     )
 }

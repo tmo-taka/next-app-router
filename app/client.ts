@@ -1,13 +1,6 @@
-// import * as prismic from '@prismicio/client'
 import { GraphQLClient } from 'graphql-request'
 
 const repositoryName = process.env.PRISMIC_REPOSITYORY_NAME ?? ''
-
-// const prismicClient = prismic.createClient(repositoryName, {
-//   // If your repository is private, add an access token
-//   // accessTokenはここにも設定しないとinvalid access token になってしまいます
-//     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-// })
 
 // アプリ全体で共通のprismicへのGraphQLClient
 export const client = new GraphQLClient(
