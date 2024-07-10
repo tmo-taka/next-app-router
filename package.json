@@ -45,11 +45,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "biome lint ./app"
-    }
-  },
   "lint-staged": {
     "app/**/*.{ts,tsx}": "npm run lint:precommit"
   }
