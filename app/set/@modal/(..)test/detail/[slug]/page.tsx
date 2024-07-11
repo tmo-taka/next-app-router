@@ -9,14 +9,15 @@ export default function Page({ params: { slug }} : { params: { slug: string } } 
 
     const [modalText, setModalText] = useState('');
 
+    const fetchData = async() => {
+        const res = await fetch(`/api/lists/${slug}`);
+        const data = await res.json();
+        setModalText(data.data.message);
+    }
+
     useEffect(() => {
-        const fetchData = async() => {
-            const res = await fetch(`/api/lists/${slug}`);
-            const data = await res.json();
-            setModalText(data.data.message);
-        }
         fetchData()
-    }, []);
+    });
 
     return (
         <Modal>

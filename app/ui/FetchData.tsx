@@ -14,12 +14,12 @@ const fetchAllPage = async () => {
 }
 
 export const FetchData = () => {
-    const { data }: UseQueryResult<any | undefined> = useQuery({queryKey: ['pages'], queryFn: fetchAllPage})
+    const { data }: UseQueryResult<[] | undefined> = useQuery({queryKey: ['pages'], queryFn: fetchAllPage})
     console.log(data)
 
     return (
         <div>
-            <div>これ</div>
+            <div>テキスト</div>
         </div>
     )
 }

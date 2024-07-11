@@ -8,6 +8,7 @@ export function Button(props: Props) {
     return (
         <button
             className='bg-cyan-700 text-white p-8'
+            type="button"
             onClick={() => {
                 props.childClick()
             }}
