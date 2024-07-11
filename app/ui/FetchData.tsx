@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import type {UseQueryResult} from '@tanstack/react-query'
+import { afterEach } from 'node:test'
 
 const fetchAllPage = async () => {
     try {
@@ -15,11 +16,9 @@ const fetchAllPage = async () => {
 
 export const FetchData = () => {
     const { data }: UseQueryResult<[] | undefined> = useQuery({queryKey: ['pages'], queryFn: fetchAllPage})
-    console.log(data)
+    const pageArr = data?.allPages?.edges.map(pageData =>
+        <div key={pageData.node._meta.id}>{pageData.node.title[0].text}</div>
+    );
 
-    return (
-        <div>
-            <div>テキスト</div>
-        </div>
-    )
+    return <div>{pageArr}</div>
 }
