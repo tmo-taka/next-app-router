@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import type {UseQueryResult} from '@tanstack/react-query'
-import { afterEach } from 'node:test'
+import type { Query } from '@/types/prismicio-types'
 
 const fetchAllPage = async () => {
     try {
@@ -15,7 +15,7 @@ const fetchAllPage = async () => {
 }
 
 export const FetchData = () => {
-    const { data }: UseQueryResult<[] | undefined> = useQuery({queryKey: ['pages'], queryFn: fetchAllPage})
+    const { data }: UseQueryResult<Query> = useQuery({queryKey: ['pages'], queryFn: fetchAllPage})
     const pageArr = data?.allPages?.edges.map(pageData =>
         <div key={pageData.node._meta.id}>{pageData.node.title[0].text}</div>
     );
