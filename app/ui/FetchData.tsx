@@ -2,7 +2,6 @@
 
 import { useQuery } from '@tanstack/react-query'
 import type { Query } from '@/types/prismicio-types'
-import { pages } from 'next/dist/build/templates/app-page'
 
 const fetchAllPage = async () => {
     try {
