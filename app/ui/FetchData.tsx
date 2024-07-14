@@ -13,32 +13,16 @@ const fetchAllPage = async () => {
     }
 }
 
-const initialResponse:Query = {
-    allPages: {
-        edges: [
-            {
-                node: {}
-            }
-        ],
-        pageInfo: {
-            hasNextPage: false,
-            hasPreviousPage: false
-        },
-        totalCount: 1
-    }
-}
-
 export const FetchData = () => {
-    const { data, isLoading, error } = useQuery<Query>({
+    const { data, isPending, error } = useQuery<Query >({
         queryKey: ['pages'],
         queryFn: fetchAllPage,
-        initialData: initialResponse
     })
-    if(!data.allPages.edges) {return <div>エラー</div>　}
-    // if(!data.allPages.edges || !data) {return <div>エラー</div>　}
-    const pageArr = data.allPages.edges.map(pageData =>
-        <div key={pageData.node._meta.id}>{pageData.node.title[0].text}</div>
-    );
-
-    return <div>{pageArr}</div>
+    if (data?.allPages.edges) {
+        const pageArr = data.allPages.edges.map(pageData =>
+            <div key={pageData.node._meta.id}>{pageData.node.title[0].text}</div>
+        );
+        return <div>{pageArr}</div>
+    }
+    return <div>Loading...</div>
 }
