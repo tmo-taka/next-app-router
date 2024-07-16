@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request'
 
-export const GET_NAVIGATION = gql`
+export const GET_ALL_PAGE = gql`
     query {
         allPages {
             edges {
@@ -12,6 +12,20 @@ export const GET_NAVIGATION = gql`
                     title
                 }
             }
+        }
+    }
+`;
+
+export const GET_PAGE = gql`
+    query GetPage($uid: String!) {
+        page(uid: $uid, lang: "ja-jp") {
+            _meta {
+                id
+                uid
+                type
+                lang
+            }
+            title
         }
     }
 `;
