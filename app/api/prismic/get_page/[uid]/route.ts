@@ -14,7 +14,6 @@ export async function GET(req: NextApiRequest, {params}: Context) {
     }
     try {
         const res = await client.request(GET_PAGE, variables)
-        console.log('res',res)
         return  Response.json(res)
     } catch(e) {
         console.log(e);

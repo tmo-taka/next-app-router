@@ -24,8 +24,16 @@ export const GET_PAGE = gql`
                 uid
                 type
                 lang
+                tags
             }
             title
+            slices {
+                __typename
+                # # ... on PageSlicesHero {
+                # ... on text {
+                #     primary
+                # }
+            }
         }
     }
 `;

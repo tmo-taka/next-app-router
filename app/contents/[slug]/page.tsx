@@ -19,6 +19,7 @@ const Page = ({ params: { slug }} : { params: { slug: string } } ) => {
         queryKey: ['contents', slug],
         queryFn: () => fetchPage(slug),
     })
+    console.log(data);
     return (
         <div>ページです、</div>
     )

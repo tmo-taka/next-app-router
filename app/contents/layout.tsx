@@ -1,27 +1,24 @@
 import type { Metadata } from "next";
 import { Suspense } from 'react';
+import Providers from "@/app/provider";
 
 export const metadata: Metadata = {
-    title: "setのlayout",
+    title: "contentsのlayout",
     description: "説明文",
 };
 
 type Props =  {
     children: React.ReactNode
-    modal: React.ReactNode
 }
 
-export default function Layout({children, modal}: Props) {
+export default function Layout({children}: Props) {
     return (
-        // NOTE: suppressHydrationWarning(https://financial-programmer.net/blog/nextjs-warning-extra-attributes)
-            // <body className="relative" suppressHydrationWarning>
-            <div>
-                <div>{children}</div>
+        <div>
+            <Providers>
                 <Suspense fallback={<div className="w-full h-full bg-black">Loading...</div>}>
-                    {modal}
+                    <div>{children}</div>
                 </Suspense>
-            </div>
-            // </body>
-        // </html>
+            </Providers>
+        </div>
     );
 }
