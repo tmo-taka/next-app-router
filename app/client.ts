@@ -9,6 +9,7 @@ export const client = new GraphQLClient(
         method: 'post',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.HYGRAPH_TOKEN}`
         },
     }
 )
