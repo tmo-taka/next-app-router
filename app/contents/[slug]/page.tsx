@@ -1,6 +1,7 @@
 "use client"
 
 // import { GET_PAGE } from "@/app/graphql/queries";
+import type {Query} from '@/graphql/graphql'
 import { useQuery } from '@tanstack/react-query'
 
 const fetchPage = async (slug: string) => {
@@ -14,7 +15,7 @@ const fetchPage = async (slug: string) => {
 }
 
 const Page = ({ params: { slug }} : { params: { slug: string } } ) => {
-    const { data, isPending } = useQuery<Query >({
+    const { data, isPending } = useQuery<Query>({
         queryKey: ['contents', slug],
         queryFn: () => fetchPage(slug),
     })

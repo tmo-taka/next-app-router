@@ -1,7 +1,7 @@
 "use client"
 
 import { useQuery } from '@tanstack/react-query'
-// TODO: typeファイル作成
+import type {Query} from '@/graphql/graphql'
 import Link from 'next/link'
 
 const fetchAllPage = async () => {
@@ -16,7 +16,7 @@ const fetchAllPage = async () => {
 }
 
 export const FetchMenu = () => {
-    const { data, isPending, error } = useQuery({
+    const { data, isPending, error } = useQuery<Query>({
         queryKey: ['pages'],
         queryFn: fetchAllPage,
     })

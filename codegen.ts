@@ -5,9 +5,12 @@ const config: CodegenConfig = {
   schema: process.env.API_URL,
   documents: './app/graphql/**.ts',
   generates: {
-    './types/': {
+    './graphql/': {
       preset: 'client',
-    }
+    },
+    // './types/hygraph-d.ts': {
+    //   plugins: ['typescript'],
+    // }
   },
 }
 
