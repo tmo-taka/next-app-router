@@ -1,24 +1,14 @@
 import { GraphQLClient } from 'graphql-request'
 
-const repositoryName = process.env.PRISMIC_REPOSITYORY_NAME ?? ''
+const endpoint = process.env.API_URL ?? ''
 
-// アプリ全体で共通のprismicへのGraphQLClient
+// アプリ全体で共通のhygraphへのGraphQLClient
 export const client = new GraphQLClient(
-    repositoryName, {
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-        // fetch: prismicClient.graphQLFetch as (
-        //     input: RequestInfo | URL,
-        //     init?: RequestInit | undefined,
-        // ) => Promise<Response>,
-        method: 'get',
-        // prismicで生成したapischemaのバージョン((https://your-repo-name.prismic.io/api/v2))
-        // APIのtoken(https://your-repo-name.prismic.io/settings/apps/)
-        // tokenはBearerで仕込む(https://prismic.io/docs/integration#add-an-authorization-token)
+    endpoint, {
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        method: 'post',
         headers: {
-            // Accept: 'application/json',
-            // 'Content-Type': 'application/json',
-            'Prismic-Ref': process.env.PRISMIC_REF ?? '',
-            Authorization: `Token ${process.env.PRISMIC_ACCESS_TOKEN}`,
+            'Content-Type': 'application/json',
         },
     }
 )

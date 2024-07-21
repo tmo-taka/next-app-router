@@ -1,13 +1,14 @@
 "use client"
 
 import { useQuery } from '@tanstack/react-query'
-import type { Query } from '@/types/prismicio-types'
+// TODO: typeファイル作成
 import Link from 'next/link'
 
 const fetchAllPage = async () => {
     try {
-        const res = await fetch('/api/prismic/get_all_page')
+        const res = await fetch('/api/hygraph/get_all_page')
         const data = await res.json()
+        console.log(data);
         return data
     } catch(e) {
         console.log(e)
@@ -15,15 +16,15 @@ const fetchAllPage = async () => {
 }
 
 export const FetchMenu = () => {
-    const { data, isPending, error } = useQuery<Query >({
+    const { data, isPending, error } = useQuery({
         queryKey: ['pages'],
         queryFn: fetchAllPage,
     })
     console.log(data);
-    if (data?.allPages.edges) {
-        const pageArr = data.allPages.edges.map(pageData =>
-            <li key={pageData.node._meta.id}>
-                <Link href={`/contents/${pageData.node._meta.uid}`}>{pageData.node.title[0].text}</Link>
+    if (data?.pages.length) {
+        const pageArr = data.pages.map(pageData =>
+            <li key={pageData.slug}>
+                <Link href={`/contents/${pageData.slug}`}>{pageData.title}</Link>
             </li>
         );
         return <ul>{pageArr}</ul>

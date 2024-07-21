@@ -2,11 +2,10 @@
 
 // import { GET_PAGE } from "@/app/graphql/queries";
 import { useQuery } from '@tanstack/react-query'
-import type { Query } from '@/types/prismicio-types'
 
-const fetchPage = async (uuid: string) => {
+const fetchPage = async (slug: string) => {
     try {
-        const res = await fetch(`/api/prismic/get_page/${uuid}`)
+        const res = await fetch(`/api/hygraph/get_page/${slug}`)
         const data = await res.json()
         return data
     } catch(e) {
@@ -15,7 +14,7 @@ const fetchPage = async (uuid: string) => {
 }
 
 const Page = ({ params: { slug }} : { params: { slug: string } } ) => {
-    const { data, isPending, error } = useQuery<Query >({
+    const { data, isPending } = useQuery<Query >({
         queryKey: ['contents', slug],
         queryFn: () => fetchPage(slug),
     })

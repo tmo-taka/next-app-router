@@ -6,7 +6,7 @@ node: v22
 | 領域  | 名称              | 
 | ----- | ----------------- | 
 | front |  Next(App router) | 
-| back  | prismic(GraphQL)  | 
+| back  | hygraph(GraphQL)  | 
 
 ## その他機能
 - tailwind

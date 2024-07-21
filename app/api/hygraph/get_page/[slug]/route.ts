@@ -8,9 +8,9 @@ type Context ={
 }
 
 export async function GET(req: NextApiRequest, {params}: Context) {
-    const {uid} = params
+    const {slug} = params
     const variables = {
-        uid
+        slug
     }
     try {
         const res = await client.request(GET_PAGE, variables)
