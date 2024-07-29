@@ -14,9 +14,10 @@ export const GET_PAGE = gql`
         page(where: {slug: $slug}) {
             title
             slug
-            # body {
-            #     text
-            # }
+            subtitle,
+            content {
+                html
+            }
         }
     }
 `;
