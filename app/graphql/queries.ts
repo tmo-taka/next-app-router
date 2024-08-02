@@ -12,7 +12,7 @@ export const GET_ALL_PAGE = gql`
 
 export const GET_PAGE = gql`
     query Page($slug: String!) {
-        page(where: {slug: $slug}) {
+        page(where: {slug: $slug}, stage: PUBLISHED) {
             title
             slug
             subtitle,
