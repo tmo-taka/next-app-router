@@ -17,7 +17,7 @@ const fetchAllPage = async () => {
 
 export const FetchMenu = () => {
     const { data, isPending, error } = useQuery<Query>({
-        queryKey: ['pages'],
+        queryKey: ['all_pages'],
         queryFn: fetchAllPage,
     })
     console.log(data);

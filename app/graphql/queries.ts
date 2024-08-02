@@ -1,8 +1,9 @@
+// content API If no stage parameter is set on the GraphQL query or additional HTTP header, then content from the selected default stage will be served.
 import { gql } from 'graphql-request'
 
 export const GET_ALL_PAGE = gql`
     query {
-        pages {
+        pages(stage: PUBLISHED) {
             title
             slug
         }
