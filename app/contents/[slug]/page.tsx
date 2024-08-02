@@ -14,10 +14,6 @@ const fetchPage = async (slug: string) => {
     }
 }
 
-const escapeHtml = (unsafe: string) => {
-    return unsafe.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;')
-}
-
 const Page = ({ params: { slug }} : { params: { slug: string } } ) => {
     const { data, isPending } = useQuery<Query>({
         queryKey: ['contents', slug],
