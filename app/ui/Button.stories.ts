@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { action } from "@storybook/addon-actions";
 import { Button } from './Button';
 import { ComponentProps } from "react";
 
@@ -20,13 +21,13 @@ const meta = {
       description: 'ボタンのラベル'
     },
     childClick: {
-      control: {action: true},
+      action: true,
       description: 'emitされるアクション'
     }
   },
   args: {
     children: 'デフォルト',
-    childClick: fn()
+    childClick: action('clicked!')
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
 } satisfies Meta<typeof Button>;
@@ -38,13 +39,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: "ボタン",
-    childClick: fn()
   },
 };
 
 export const Primary: Story = {
   args: {
-    children: "文字数をかなりオーバーしてみた",
-    childClick: fn()
+    children: "メインのボタン",
   },
 };
