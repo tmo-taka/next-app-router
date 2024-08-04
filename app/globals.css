@@ -16,16 +16,9 @@
   }
 }
 
-@layer base {
-  :root {
-    --color-font: #3f3f46;
-    --color-base: #e0e7ff;
-  }
-}
-
 body {
-  color: var(--color-font);
-  background: var(--color-base);
+  color: theme('colors.font');
+  background: theme('colors.base');
 }
 
 @layer utilities {
