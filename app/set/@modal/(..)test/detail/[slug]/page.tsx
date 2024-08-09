@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState} from 'react';
 // import { useParams } from 'next/navigation'
 import { Modal } from '@/app/ui/Modal'
+import { useEffect, useState} from 'react';
 
 export default function Page({ params: { slug }} : { params: { slug: string } } ) {
     console.log(slug)

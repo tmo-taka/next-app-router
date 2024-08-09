@@ -1,6 +1,6 @@
+import Providers from "@/app/provider";
 import type { Metadata } from "next";
 import { Suspense } from 'react';
-import Providers from "@/app/provider";
 
 export const metadata: Metadata = {
     title: "contentsのlayout",
@@ -15,7 +15,7 @@ export default function Layout({children}: Props) {
     return (
         <div>
             <Providers>
-                <Suspense fallback={<div className="w-full h-full bg-black">Loading...</div>}>
+                <Suspense fallback={<div className="h-full w-full bg-black">Loading...</div>}>
                     <div>{children}</div>
                 </Suspense>
             </Providers>

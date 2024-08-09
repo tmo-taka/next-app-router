@@ -1,6 +1,6 @@
+import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { action } from "@storybook/addon-actions";
 import { Button } from './Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

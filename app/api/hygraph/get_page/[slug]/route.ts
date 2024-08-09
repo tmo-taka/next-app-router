@@ -1,6 +1,6 @@
-import type { NextApiRequest} from 'next'
 import {client} from "@/app/client";
 import {GET_PAGE} from "@/app/graphql/queries"
+import type { NextApiRequest} from 'next'
 
 type Context ={
     params: Record<string, string>;

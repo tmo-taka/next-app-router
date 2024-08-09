@@ -17,7 +17,7 @@ export default function Layout({children, modal}: Props) {
             // <body className="relative" suppressHydrationWarning>
             <div>
                 <div>{children}</div>
-                <Suspense fallback={<div className="w-full h-full bg-black">Loading...</div>}>
+                <Suspense fallback={<div className="h-full w-full bg-black">Loading...</div>}>
                     {modal}
                 </Suspense>
             </div>

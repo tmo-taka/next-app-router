@@ -1,7 +1,8 @@
 "use client"
 
-import { useQuery } from '@tanstack/react-query'
+import {Loading} from '@/app/ui/Loading'
 import type {Query} from '@/graphql/graphql'
+import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 
 const fetchAllPage = async () => {
@@ -20,14 +21,11 @@ export const FetchMenu = () => {
         queryKey: ['all_pages'],
         queryFn: fetchAllPage,
     })
-    console.log(data);
-    if (data?.pages.length) {
-        const pageArr = data.pages.map(pageData =>
-            <li key={pageData.slug}>
-                <Link href={`/contents/${pageData.slug}`}>{pageData.title}</Link>
-            </li>
-        );
-        return <ul>{pageArr}</ul>
-    }
-    return <div>Loading...</div>
+    if(isPending) {return <Loading />}
+    const pageArr = data?.pages.map(pageData =>
+        <li key={pageData.slug}>
+            <Link href={`/contents/${pageData.slug}`}>{pageData.title}</Link>
+        </li>
+    );
+    return <ul>{pageArr}</ul>
 }

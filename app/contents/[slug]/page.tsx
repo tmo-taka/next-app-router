@@ -22,7 +22,7 @@ const Page = ({ params: { slug }} : { params: { slug: string } } ) => {
     if (data?.page) {
         return (
             <div className='p-6'>
-                <h1 className="text-4xl font-bold mb-6">{data?.page.title}</h1>
+                <h1 className="mb-6 font-bold text-4xl">{data?.page.title}</h1>
 
                 <p>{data?.page.subtitle}</p>
                 <div className='p-8'>
