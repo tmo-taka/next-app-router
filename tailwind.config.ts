@@ -16,7 +16,8 @@ const config: Config = {
       colors: {
         "font": '#3f3f46',
         "accent": '#22c55e',
-        "base": '#e0e7ff'
+        "base": '#e0e7ff',
+        "link": '#6d28d9'
       }
     },
   },

@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev && biome lint --staged ./app",
     "build": "next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky",
-    "lint:precommit": "biome lint ./app",
+    "lint:precommit": "biome lint --staged",
     "generated-types": "npx graphql-codegen"
   },
   "dependencies": {
