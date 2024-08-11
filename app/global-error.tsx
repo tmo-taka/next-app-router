@@ -7,8 +7,9 @@ export default function GlobalError({
     error: Error & { digest?: string }
     reset: () => void
 }) {
+    console.log(error)
     return (
-    // global-error must include html and body tags
+    // TOP階層でのエラー
         <html lang="ja">
             <body>
                 <h2>Something went wrong!</h2>

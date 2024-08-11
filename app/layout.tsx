@@ -7,6 +7,8 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({children}: Props) {
+    // throw 'こいでエラー'
+
     return (
         // NOTE: suppressHydrationWarning(https://financial-programmer.net/blog/nextjs-warning-extra-attributes)
         <html lang="ja" suppressHydrationWarning>

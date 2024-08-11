@@ -11,6 +11,9 @@
 			"security": {
 				"noDangerouslySetInnerHtml": "off"
 			},
+			"suspicious": {
+				"noShadowRestrictedNames": "off"
+			},
 			"nursery": {
 				"useSortedClasses": "warn"
 			}
