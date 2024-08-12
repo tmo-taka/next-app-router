@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Suspense } from 'react'
 import Providers from "./provider";
-import { FetchMenu } from "./ui/FetchMenu";
 import Error from "./error";
 import Loading from "./loading";
+import { FetchMenu } from "./ui/FetchMenu";
+import { Navigation } from "./ui/Navigation";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
           <ErrorBoundary fallback={<Error />}>
             <FetchMenu />
           </ErrorBoundary>
+          <Suspense fallback={<Loading />}>
+            <Navigation />
+          </Suspense>
         </Providers>
       </Suspense>
     </main>
