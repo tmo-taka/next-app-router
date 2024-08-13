@@ -27,8 +27,10 @@ export const GET_NAVIGATION = gql`
     query {
         navigations(stage: PUBLISHED) {
             navId,
-            # displayText,
-            # externalUrl
+            link {
+                displayText,
+                externalUrl
+            }
         }
     }
 `;

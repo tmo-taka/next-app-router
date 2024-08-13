@@ -24,14 +24,18 @@ export const Navigation = () => {
     if(isPending) return <Loading />
     if(error) throw new Error(error.message)
 
-    const navArr = data?.navigations?.map(nav =>
-        <li key={nav.navId}>
-            <Link href={`/${nav.navId}`}>{nav.navId}</Link>
-        </li>
+    const navArr = data?.navigations?.map(nav => {
+            const getFirstLink = nav.link[0];
+            return (
+                <li key={nav.navId} className="border-2 border-white">
+                    <Link href={getFirstLink.externalUrl} className="block px-8 py-4 bg-accent text-white">{getFirstLink.displayText}</Link>
+                </li>
+            )
+        }
     );
     return (
         <nav>
-            <ul>
+            <ul className="flex">
                 {navArr}
             </ul>
         </nav>
