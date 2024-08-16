@@ -46,6 +46,8 @@
     "eslint-plugin-storybook": "^0.8.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
+    "msw": "^2.3.5",
+    "msw-storybook-addon": "^2.0.3",
     "path": "^0.12.7",
     "postcss": "^8",
     "storybook": "^8.2.7",
@@ -55,5 +57,10 @@
   },
   "lint-staged": {
     "app/**/*.{ts,tsx}": "npm run lint:precommit"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
