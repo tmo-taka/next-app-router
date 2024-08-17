@@ -1,4 +1,4 @@
-import { http, HttpResponse } from "msw";
+import { http, delay, HttpResponse } from "msw";
 import { navigations } from "./case/get_navigation"
 
 type Navigations = {
@@ -12,7 +12,8 @@ type Navigations = {
 };
 
 export const handlers = [
-    http.get<Navigations>('http://localhost:6006/api/hygraph/get_navigation', () => {
+    http.get<Navigations>('http://localhost:6006/api/hygraph/get_navigation', async() => {
+        await delay(500)
         return HttpResponse.json({ navigations })
     })
 ];
