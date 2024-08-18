@@ -13,7 +13,7 @@ type Navigations = {
 
 export const handlers = [
     http.get<Navigations>('http://localhost:6006/api/hygraph/get_navigation', async() => {
-        await delay(500)
+        await delay(1000)
         return HttpResponse.json({ navigations })
     })
 ];

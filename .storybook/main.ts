@@ -22,7 +22,7 @@ const config: StorybookConfig = {
   staticDirs: ["../public"],
   webpackFinal: async (config: any) => {
     // Add path aliases
-    config.resolve.alias['@'] = path.resolve(__dirname, '../')
+    config.resolve.alias['@'] = path.resolve(__dirname, '../app/')
     return config
   },
 };
