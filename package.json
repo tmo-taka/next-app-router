@@ -6,7 +6,7 @@
     "dev": "next dev && biome lint ./app",
     "build": "next build",
     "start": "next start",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "prepare": "husky",
     "lint:precommit": "biome lint ./app",
