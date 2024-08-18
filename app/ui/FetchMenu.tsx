@@ -25,8 +25,13 @@ export const FetchMenu = () => {
 
     const pageArr = data?.pages.map(pageData =>
         <li key={pageData.slug}>
-            <Link href={`/contents/${pageData.slug}`}>{pageData.title}</Link>
+            <Link
+                href={`/contents/${pageData.slug}`}
+                className="block p-2 border-l-2 border-l-accent hover:translate-x-2"
+            >
+                {pageData.title}
+            </Link>
         </li>
     );
-    return <ul>{pageArr}</ul>
+    return <ul className="p-4">{pageArr}</ul>
 }
