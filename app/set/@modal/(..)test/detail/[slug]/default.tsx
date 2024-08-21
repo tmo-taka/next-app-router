@@ -1,2 +1,4 @@
-const Default = () => {return(<div>Loading</div>)};
+const Default = () => {
+	return <div>Loading</div>;
+};
 export default Default;

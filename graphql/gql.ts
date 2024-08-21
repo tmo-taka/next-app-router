@@ -1,6 +1,6 @@
-import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 /* eslint-disable */
 import * as types from './graphql';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 /**
  * Map of all GraphQL operations in the project.
@@ -13,7 +13,7 @@ import * as types from './graphql';
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n    query Page($slug: String!) {\n        page(where: {slug: $slug}) {\n            title\n            slug\n            # body {\n            #     text\n            # }\n        }\n    }\n": types.PageDocument,
+    "\n    query Page($slug: String!) {\n        page(where: {slug: $slug}, stage: PUBLISHED) {\n            title\n            slug\n            subtitle,\n            content {\n                html\n            }\n        }\n    }\n": types.PageDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query Page($slug: String!) {\n        page(where: {slug: $slug}) {\n            title\n            slug\n            # body {\n            #     text\n            # }\n        }\n    }\n"): (typeof documents)["\n    query Page($slug: String!) {\n        page(where: {slug: $slug}) {\n            title\n            slug\n            # body {\n            #     text\n            # }\n        }\n    }\n"];
+export function graphql(source: "\n    query Page($slug: String!) {\n        page(where: {slug: $slug}, stage: PUBLISHED) {\n            title\n            slug\n            subtitle,\n            content {\n                html\n            }\n        }\n    }\n"): (typeof documents)["\n    query Page($slug: String!) {\n        page(where: {slug: $slug}, stage: PUBLISHED) {\n            title\n            slug\n            subtitle,\n            content {\n                html\n            }\n        }\n    }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

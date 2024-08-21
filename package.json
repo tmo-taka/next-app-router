@@ -9,8 +9,9 @@
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "prepare": "husky",
-    "lint:precommit": "biome lint ./app",
     "lint": "biome lint ./app",
+    "lint:precommit": "biome lint ./app",
+    "lint:fixed": "npx @biomejs/biome check --write --unsafe ./app",
     "generated-types": "npx graphql-codegen"
   },
   "dependencies": {

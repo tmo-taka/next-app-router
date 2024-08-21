@@ -13,6 +13,6 @@ node: v22
 ## その他機能
 - tailwind
 - storybook
-- TankStack Query
+- ~~TankStack Query~~
 - Biome(huskyのpre-commit時)
 

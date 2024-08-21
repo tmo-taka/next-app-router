@@ -1,5 +1,5 @@
 /* eslint-disable */
-import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -1502,15 +1502,8 @@ export type Link = Entity & {
   externalUrl?: Maybe<Scalars['String']['output']>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
-  page?: Maybe<LinkPage>;
   /** System stage field */
   stage: Stage;
-};
-
-
-export type LinkPageArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
 };
 
 export type LinkConnectInput = {
@@ -1533,7 +1526,6 @@ export type LinkConnection = {
 export type LinkCreateInput = {
   displayText?: InputMaybe<Scalars['String']['input']>;
   externalUrl?: InputMaybe<Scalars['String']['input']>;
-  page?: InputMaybe<LinkPageCreateOneInlineInput>;
 };
 
 export type LinkCreateManyInlineInput = {
@@ -1629,10 +1621,6 @@ export type LinkManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values in which the union is connected to the given models */
-  page?: InputMaybe<LinkPageWhereInput>;
-  /** All values in which the union is empty */
-  page_empty?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export enum LinkOrderByInput {
@@ -1643,102 +1631,6 @@ export enum LinkOrderByInput {
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC'
 }
-
-export type LinkPage = Author | Page | Post;
-
-export type LinkPageConnectInput = {
-  Author?: InputMaybe<AuthorConnectInput>;
-  Page?: InputMaybe<PageConnectInput>;
-  Post?: InputMaybe<PostConnectInput>;
-};
-
-export type LinkPageCreateInput = {
-  Author?: InputMaybe<AuthorCreateInput>;
-  Page?: InputMaybe<PageCreateInput>;
-  Post?: InputMaybe<PostCreateInput>;
-};
-
-export type LinkPageCreateManyInlineInput = {
-  /** Connect multiple existing LinkPage documents */
-  connect?: InputMaybe<Array<LinkPageWhereUniqueInput>>;
-  /** Create and connect multiple existing LinkPage documents */
-  create?: InputMaybe<Array<LinkPageCreateInput>>;
-};
-
-export type LinkPageCreateOneInlineInput = {
-  /** Connect one existing LinkPage document */
-  connect?: InputMaybe<LinkPageWhereUniqueInput>;
-  /** Create and connect one LinkPage document */
-  create?: InputMaybe<LinkPageCreateInput>;
-};
-
-export type LinkPageUpdateInput = {
-  Author?: InputMaybe<AuthorUpdateInput>;
-  Page?: InputMaybe<PageUpdateInput>;
-  Post?: InputMaybe<PostUpdateInput>;
-};
-
-export type LinkPageUpdateManyInlineInput = {
-  /** Connect multiple existing LinkPage documents */
-  connect?: InputMaybe<Array<LinkPageConnectInput>>;
-  /** Create and connect multiple LinkPage documents */
-  create?: InputMaybe<Array<LinkPageCreateInput>>;
-  /** Delete multiple LinkPage documents */
-  delete?: InputMaybe<Array<LinkPageWhereUniqueInput>>;
-  /** Disconnect multiple LinkPage documents */
-  disconnect?: InputMaybe<Array<LinkPageWhereUniqueInput>>;
-  /** Override currently-connected documents with multiple existing LinkPage documents */
-  set?: InputMaybe<Array<LinkPageWhereUniqueInput>>;
-  /** Update multiple LinkPage documents */
-  update?: InputMaybe<Array<LinkPageUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple LinkPage documents */
-  upsert?: InputMaybe<Array<LinkPageUpsertWithNestedWhereUniqueInput>>;
-};
-
-export type LinkPageUpdateManyWithNestedWhereInput = {
-  Author?: InputMaybe<AuthorUpdateManyWithNestedWhereInput>;
-  Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>;
-  Post?: InputMaybe<PostUpdateManyWithNestedWhereInput>;
-};
-
-export type LinkPageUpdateOneInlineInput = {
-  /** Connect existing LinkPage document */
-  connect?: InputMaybe<LinkPageWhereUniqueInput>;
-  /** Create and connect one LinkPage document */
-  create?: InputMaybe<LinkPageCreateInput>;
-  /** Delete currently connected LinkPage document */
-  delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Disconnect currently connected LinkPage document */
-  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single LinkPage document */
-  update?: InputMaybe<LinkPageUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single LinkPage document */
-  upsert?: InputMaybe<LinkPageUpsertWithNestedWhereUniqueInput>;
-};
-
-export type LinkPageUpdateWithNestedWhereUniqueInput = {
-  Author?: InputMaybe<AuthorUpdateWithNestedWhereUniqueInput>;
-  Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>;
-  Post?: InputMaybe<PostUpdateWithNestedWhereUniqueInput>;
-};
-
-export type LinkPageUpsertWithNestedWhereUniqueInput = {
-  Author?: InputMaybe<AuthorUpsertWithNestedWhereUniqueInput>;
-  Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>;
-  Post?: InputMaybe<PostUpsertWithNestedWhereUniqueInput>;
-};
-
-export type LinkPageWhereInput = {
-  Author?: InputMaybe<AuthorWhereInput>;
-  Page?: InputMaybe<PageWhereInput>;
-  Post?: InputMaybe<PostWhereInput>;
-};
-
-export type LinkPageWhereUniqueInput = {
-  Author?: InputMaybe<AuthorWhereUniqueInput>;
-  Page?: InputMaybe<PageWhereUniqueInput>;
-  Post?: InputMaybe<PostWhereUniqueInput>;
-};
 
 export type LinkParent = Navigation;
 
@@ -1823,7 +1715,6 @@ export type LinkParentWhereUniqueInput = {
 export type LinkUpdateInput = {
   displayText?: InputMaybe<Scalars['String']['input']>;
   externalUrl?: InputMaybe<Scalars['String']['input']>;
-  page?: InputMaybe<LinkPageUpdateOneInlineInput>;
 };
 
 export type LinkUpdateManyInlineInput = {
@@ -1965,10 +1856,6 @@ export type LinkWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values in which the union is connected to the given models */
-  page?: InputMaybe<LinkPageWhereInput>;
-  /** All values in which the union is empty */
-  page_empty?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** References Link record uniquely */
@@ -6830,7 +6717,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', title: string, slug: string } | null };
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', title: string, slug: string, subtitle?: string | null, content: { __typename?: 'RichText', html: string } } | null };
 
 
-export const PageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Page"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]} as unknown as DocumentNode<PageQuery, PageQueryVariables>;
+export const PageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Page"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"stage"},"value":{"kind":"EnumValue","value":"PUBLISHED"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]} as unknown as DocumentNode<PageQuery, PageQueryVariables>;

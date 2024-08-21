@@ -20,6 +20,6 @@
 		}
 	},
 	"formatter": {
-		"enabled": false
+		"enabled": true
 	}
 }
