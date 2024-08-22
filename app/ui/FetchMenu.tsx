@@ -27,6 +27,7 @@ export const FetchMenu = () => {
 			<Link
 				href={`/contents/${pageData.slug}`}
 				className="block border-l-2 border-l-accent p-2 hover:translate-x-2"
+                scroll={false}
 			>
 				{pageData.title}
 			</Link>
