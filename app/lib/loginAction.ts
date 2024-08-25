@@ -16,5 +16,13 @@ export const loginAction = async(formData: FormData) => {
             paramsObj[key] = value;
         }
     }
-    console.log(paramsObj)
+
+    const response = await fetch('/api/auth/', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(paramsObj),
+    })
+    console.log(response);
 }
