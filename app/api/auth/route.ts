@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 		return new Response('Success!',{
 			status: 200,
 			headers: {
-				'Set-Cookie': 'SESSION=dafafatgdhs'
+				'Set-Cookie': `SESSION=${process.env.TOKEN}; Max-Age=50000; SameSite=Strict; Path=/;`
 			}
 		})
 	}
